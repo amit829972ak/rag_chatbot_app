@@ -1,0 +1,8 @@
+streamlit
+openai
+google-generativeai
+requests
+faiss-cpu
+sentence-transformers
+PyMuPDF
+python-docx
