@@ -1,5 +1,6 @@
 streamlit
 anthropic
+duckduckgo-search
 faiss-cpu
 google-generativeai
 langchain
@@ -7,3 +8,4 @@ langchain-community
 openai
 pypdf2
 python-docx
+trafilatura
