@@ -286,7 +286,7 @@ with col1:
             border-radius: 6px !important;
             padding: 0 !important;
             width: 40px !important;
-            height: 60px !important;
+            height: 40px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -314,7 +314,7 @@ with col1:
         }
         div[data-testid="stFileUploader"] section button {
             position: absolute !important;
-            top: 0 !important;
+            top: 1 !important;
             left: 0 !important;
             width: 100% !important;
             height: 100% !important;
