@@ -310,7 +310,7 @@ with col1:
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-60%, -60%);
+            transform: translate(-50%, -50%);
         }
         div[data-testid="stFileUploader"] section button {
             position: absolute !important;
