@@ -279,7 +279,7 @@ with col1:
         div[data-testid="stFileUploader"] > div {
             border: none !important;
             background: none !important;
-            padding: 2 !important;
+            padding: 0 !important;
         }
         div[data-testid="stFileUploader"] section {
             border: 1px solid #e2e8f0 !important;
