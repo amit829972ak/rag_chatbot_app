@@ -308,8 +308,8 @@ with col1:
             font-weight: bold;
             display: block !important;
             position: absolute;
-            top: 60%;
-            left: 60%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
         }
         div[data-testid="stFileUploader"] section button {
