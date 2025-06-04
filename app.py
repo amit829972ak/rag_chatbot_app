@@ -262,7 +262,7 @@ with col1:
             st.markdown(f"<div class='bot-message'>{message['content']}</div>", unsafe_allow_html=True)
     
     # Input for new question with options
-    col_input, col_upload, col_web_search = st.columns([4, 1, 1])
+    col_input, col_upload, col_web_search = st.columns([4, 0.3, 0.5])
     
     with col_input:
         query = st.text_input("Ask your question:", key="query_input")
