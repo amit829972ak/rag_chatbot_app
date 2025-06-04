@@ -285,8 +285,8 @@ with col1:
             border: 2px solid #e2e8f0 !important;
             border-radius: 6px !important;
             padding: 0 !important;
-            width: 50px !important;
-            height: 50px !important;
+            width: 45px !important;
+            height: 45px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
