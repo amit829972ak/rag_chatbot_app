@@ -262,7 +262,7 @@ with col1:
             st.markdown(f"<div class='bot-message'>{message['content']}</div>", unsafe_allow_html=True)
     
     # Input for new question with options
-    col_input, col_upload, col_web_search = st.columns([4, 0.5, 0.5])
+    col_input, col_upload, col_web_search = st.columns([4, 0.3, 0.5])
     
     with col_input:
         query = st.text_input("Ask your question:", key="query_input")
@@ -285,8 +285,8 @@ with col1:
             border: 1px solid #e2e8f0 !important;
             border-radius: 6px !important;
             padding: 0 !important;
-            width: 40px !important;
-            height: 40px !important;
+            width: 60px !important;
+            height: 60px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
