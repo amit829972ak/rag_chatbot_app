@@ -293,7 +293,7 @@ with col1:
                 background-color: white !important;
                 cursor: pointer !important;
                 position: relative !important;
-                margin-top: -13px;
+                margin-top: -15px;
             }
             div[data-testid="stFileUploader"] section:hover {
                 border-color: #0EA5E9 !important;
