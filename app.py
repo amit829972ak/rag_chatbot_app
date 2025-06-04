@@ -314,7 +314,7 @@ with col1:
         }
         div[data-testid="stFileUploader"] section button {
             position: absolute !important;
-            top: 1 !important;
+            top: 0 !important;
             left: 0 !important;
             width: 100% !important;
             height: 100% !important;
