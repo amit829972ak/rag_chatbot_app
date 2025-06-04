@@ -309,7 +309,7 @@ with col1:
             display: block !important;
             position: absolute;
             top: 50%;
-            left: 30%;
+            left: 50%;
             transform: translate(-50%, -50%);
         }
         div[data-testid="stFileUploader"] section button {
