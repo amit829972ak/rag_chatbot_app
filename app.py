@@ -262,78 +262,23 @@ with col1:
             st.markdown(f"<div class='bot-message'>{message['content']}</div>", unsafe_allow_html=True)
     
     # Input for new question with options
-    col_input, col_upload, col_web_search = st.columns([4, 0.3, 0.5])
-    
+    col_input, col_upload, col_web_search = st.columns([6, 1, 1])
+
     with col_input:
-        query = st.text_input("Ask your question:", key="query_input")
+        query = st.text_input("Ask your question:", key="query_input", label_visibility="collapsed")
     
     with col_upload:
-        st.markdown("<br>", unsafe_allow_html=True)  # Add some space to align with text input
-        
-        # Add custom CSS for the upload button
-        st.markdown("""
-        <style>
-        div[data-testid="stFileUploader"] label {
-            display: none !important;
-        }
-        div[data-testid="stFileUploader"] > div {
-            border: none !important;
-            background: none !important;
-            padding: 0 !important;
-        }
-        div[data-testid="stFileUploader"] section {
-            border: 2px solid #e2e8f0 !important;
-            border-radius: 6px !important;
-            padding: 0 !important;
-            width: 45px !important;
-            height: 45px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background-color: white !important;
-            cursor: pointer !important;
-            position: relative !important;
-        }
-        div[data-testid="stFileUploader"] section:hover {
-            border-color: #0EA5E9 !important;
-            background-color: #f8fafc !important;
-        }
-        div[data-testid="stFileUploader"] section * {
-            display: none !important;
-        }
-        div[data-testid="stFileUploader"] section::before {
-            content: "📎";
-            font-size: 20px;
-            color: #4A5568;
-            font-weight: bold;
-            display: block !important;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        div[data-testid="stFileUploader"] section button {
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            opacity: 0 !important;
-            cursor: pointer !important;
-        }
-        </style>
-        """, unsafe_allow_html=True)
         uploaded_file = st.file_uploader(
-            "📎", 
+            label="Upload",
             type=["pdf", "txt", "docx", "xlsx", "xls", "pptx", "ppt"],
-            help="Upload a document to ask questions about (PDF, TXT, DOCX, XLSX, PPTX)",
+            help="Upload a document to ask questions about",
             label_visibility="collapsed",
             key="doc_uploader_inline"
         )
     
     with col_web_search:
-        st.markdown("<br>", unsafe_allow_html=True)  # Add some space to align with text input
         web_search_clicked = st.button("🌐", help="Search the web for this question", key="web_search_btn")
+
     
     # Handle web search
     if web_search_clicked and query:
