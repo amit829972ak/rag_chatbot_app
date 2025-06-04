@@ -92,7 +92,7 @@ def load_css():
         color: white;
         border-radius: 6px;
         border: none;
-        padding: 1rem 1rem;
+        padding: 0.5rem 1rem;
         font-weight: 500;
     }
     
