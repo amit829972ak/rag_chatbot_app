@@ -286,7 +286,7 @@ with col1:
             border-radius: 6px !important;
             padding: 0 !important;
             width: 40px !important;
-            height: 40px !important;
+            height: 60px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -308,7 +308,7 @@ with col1:
             font-weight: bold;
             display: block !important;
             position: absolute;
-            top: 70%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
