@@ -263,8 +263,8 @@ with col1:
     
     # Input for new question with options
     col_input, col_icons = st.columns([4, 1])
-    
-    with col_icons:
+
+with col_icons:
     col_upload, col_web = st.columns(2)
 
     # 📎 Upload Icon Button
@@ -321,7 +321,7 @@ with col1:
 
     # 🌐 Web Search Button
     with col_web:
-        st.markdown("<div style='height: 4px'></div>", unsafe_allow_html=True)  # align height with uploader
+        st.markdown("<div style='height: 4px'></div>", unsafe_allow_html=True)
         web_search_clicked = st.button("🌐", help="Search the web for this question", key="web_search_btn")
 
     
