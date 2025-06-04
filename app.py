@@ -282,7 +282,7 @@ with col1:
             padding: 0 !important;
         }
         div[data-testid="stFileUploader"] section {
-            border: 1px solid #e2e8f0 !important;
+            border: 2px solid #e2e8f0 !important;
             border-radius: 6px !important;
             padding: 0 !important;
             width: 40px !important;
