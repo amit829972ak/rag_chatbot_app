@@ -271,8 +271,8 @@ with col1:
         st.markdown("<br>", unsafe_allow_html=True)  # Add some space to align with text input
         uploaded_file = st.file_uploader(
             "📎", 
-            type=["pdf", "txt", "docx"],
-            help="Upload a document to ask questions about",
+            type=["pdf", "txt", "docx", "xlsx", "xls", "pptx", "ppt"],
+            help="Upload a document to ask questions about (PDF, TXT, DOCX, XLSX, PPTX)",
             label_visibility="collapsed",
             key="doc_uploader_inline"
         )
