@@ -424,9 +424,8 @@ with col2:
     st.markdown("""
     This RAG (Retrieval-Augmented Generation) chatbot:
     
-    1. Searches through uploaded documents
-    2. Finds relevant information using text search
-    3. Uses AI to generate comprehensive answers
-    4. Falls back to FAQ for common questions
-    5. **🌐 Web Search** - Click the globe icon to search the internet
+    **Search Options:**
+    - 🌐 Web Search - Click the globe icon
+    - 📎 Instant document analysis - Upload and ask
+    - 📚 Knowledge base search - Select specific documents
     """)
