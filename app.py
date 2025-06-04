@@ -302,7 +302,7 @@ with col1:
             display: none !important;
         }
         div[data-testid="stFileUploader"] section::before {
-            content: "+";
+            content: "📎";
             font-size: 20px;
             color: #4A5568;
             font-weight: bold;
