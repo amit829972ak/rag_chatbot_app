@@ -286,7 +286,7 @@ with col1:
             border-radius: 6px !important;
             padding: 0 !important;
             width: 40px !important;
-            height: 80px !important;
+            height: 40px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -309,7 +309,7 @@ with col1:
             display: block !important;
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 30%;
             transform: translate(-50%, -50%);
         }
         div[data-testid="stFileUploader"] section button {
