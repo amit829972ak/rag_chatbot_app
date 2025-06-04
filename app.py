@@ -308,7 +308,7 @@ with col1:
             font-weight: bold;
             display: block !important;
             position: absolute;
-            top: 50%;
+            top: 70%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
