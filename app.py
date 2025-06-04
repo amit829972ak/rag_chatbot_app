@@ -261,8 +261,42 @@ with col1:
         else:
             st.markdown(f"<div class='bot-message'>{message['content']}</div>", unsafe_allow_html=True)
     
-    # Input for new question
-    query = st.text_input("Ask your question:", key="query_input")
+    # Input for new question with options
+    col_input, col_upload, col_web_search = st.columns([4, 0.5, 0.5])
+    
+    with col_input:
+        query = st.text_input("Ask your question:", key="query_input")
+    
+    with col_upload:
+        st.markdown("<br>", unsafe_allow_html=True)  # Add some space to align with text input
+        uploaded_file = st.file_uploader(
+            "📎", 
+            type=["pdf", "txt", "docx"],
+            help="Upload a document to ask questions about",
+            label_visibility="collapsed",
+            key="doc_uploader_inline"
+        )
+    
+    with col_web_search:
+        st.markdown("<br>", unsafe_allow_html=True)  # Add some space to align with text input
+        web_search_clicked = st.button("🌐", help="Search the web for this question", key="web_search_btn")
+    
+    # Handle web search
+    if web_search_clicked and query:
+        from utils.web_search import handle_web_search
+        
+        # Add user message to chat history
+        st.session_state['chat_history'].append({'role': 'user', 'content': f"🌐 Web Search: {query}"})
+        
+        # Perform web search
+        with st.spinner("Searching the web..."):
+            search_results = handle_web_search(query)
+        
+        # Add search results to chat history
+        st.session_state['chat_history'].append({'role': 'assistant', 'content': search_results})
+        
+        # Refresh the page to show the updated chat
+        st.rerun()
     
     if st.button("Send") and query:
         # Add user message to chat history
@@ -270,7 +304,7 @@ with col1:
         
         # Get response from RAG system
         with st.spinner("Getting answer..."):
-            response = handle_chat(query, internal_model_choice, api_key)
+            response = handle_chat(query, internal_model_choice, api_key, uploaded_file)
         
         # Add bot response to chat history
         st.session_state['chat_history'].append({'role': 'assistant', 'content': response})
@@ -338,28 +372,5 @@ with col2:
     2. Finds relevant information using text search
     3. Uses AI to generate comprehensive answers
     4. Falls back to FAQ for common questions
+    5. **🌐 Web Search** - Click the globe icon to search the internet
     """)
-    
-    # Show example questions
-    st.subheader("Example Questions")
-    example_questions = [
-        "What are the company work hours?",
-        "How do I apply for leave?",
-        "What is the company policy on remote work?",
-        "When is the next company meeting?"
-    ]
-    
-    for question in example_questions:
-        if st.button(question, key=f"example_{hash(question)}"):
-            # Add example question to chat history
-            st.session_state['chat_history'].append({'role': 'user', 'content': question})
-            
-            # Get response from RAG system
-            with st.spinner("Getting answer..."):
-                response = handle_chat(question, internal_model_choice, api_key)
-            
-            # Add bot response to chat history
-            st.session_state['chat_history'].append({'role': 'assistant', 'content': response})
-            
-            # Refresh the page to show the updated chat
-            st.rerun()
