@@ -269,6 +269,60 @@ with col1:
     
     with col_upload:
         st.markdown("<br>", unsafe_allow_html=True)  # Add some space to align with text input
+        
+        # Add custom CSS for the upload button
+        st.markdown("""
+        <style>
+        div[data-testid="stFileUploader"] label {
+            display: none !important;
+        }
+        div[data-testid="stFileUploader"] > div {
+            border: none !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+        div[data-testid="stFileUploader"] section {
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 6px !important;
+            padding: 0 !important;
+            width: 40px !important;
+            height: 40px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background-color: white !important;
+            cursor: pointer !important;
+            position: relative !important;
+        }
+        div[data-testid="stFileUploader"] section:hover {
+            border-color: #0EA5E9 !important;
+            background-color: #f8fafc !important;
+        }
+        div[data-testid="stFileUploader"] section * {
+            display: none !important;
+        }
+        div[data-testid="stFileUploader"] section::before {
+            content: "+";
+            font-size: 20px;
+            color: #4A5568;
+            font-weight: bold;
+            display: block !important;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        div[data-testid="stFileUploader"] section button {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 0 !important;
+            cursor: pointer !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
         uploaded_file = st.file_uploader(
             "📎", 
             type=["pdf", "txt", "docx", "xlsx", "xls", "pptx", "ppt"],
