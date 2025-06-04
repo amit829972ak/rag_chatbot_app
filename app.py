@@ -1,4 +1,4 @@
-instead import streamlit as st
+import streamlit as st
 import base64
 from utils.auth import login_form
 from utils.docs import handle_upload, handle_delete, list_documents
