@@ -262,7 +262,7 @@ with col1:
             st.markdown(f"<div class='bot-message'>{message['content']}</div>", unsafe_allow_html=True)
     
     # Input for new question with options
-    col_input, col_upload, col_web_search = st.columns([4, 0.3, 0.5])
+    col_input, col_upload, col_web_search = st.columns([4, 0.5, 0.5])
     
     with col_input:
         query = st.text_input("Ask your question:", key="query_input")
@@ -282,11 +282,11 @@ with col1:
             padding: 0 !important;
         }
         div[data-testid="stFileUploader"] section {
-            border: 2px solid #e2e8f0 !important;
+            border: 1px solid #e2e8f0 !important;
             border-radius: 6px !important;
             padding: 0 !important;
-            width: 45px !important;
-            height: 45px !important;
+            width: 40px !important;
+            height: 40px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -428,7 +428,3 @@ with col2:
     4. Falls back to FAQ for common questions
     5. **🌐 Web Search** - Click the globe icon to search the internet
     """)
-
-
-
-show me output
