@@ -4,7 +4,7 @@ from utils.llm import query_model
 import json
 import os
 
-def handle_chat(query, model_choice, api_key):
+def handle_chat(query, model_choice, api_key, uploaded_file=None):
     """
     Handle a chat query using RAG methodology.
     
@@ -12,11 +12,48 @@ def handle_chat(query, model_choice, api_key):
         query: User query string
         model_choice: Selected AI model
         api_key: API key for the selected model
+        uploaded_file: Optional uploaded file to process and query
         
     Returns:
         Response string from the AI model
     """
     try:
+        # Handle uploaded file first if provided
+        temp_content = None
+        if uploaded_file is not None:
+            try:
+                # Save the uploaded file temporarily
+                import tempfile
+                with tempfile.NamedTemporaryFile(delete=False, suffix=f".{uploaded_file.name.split('.')[-1]}") as tmp_file:
+                    tmp_file.write(uploaded_file.getvalue())
+                    temp_path = tmp_file.name
+                
+                # Extract text from the uploaded file
+                temp_content = extract_text_from_file(temp_path)
+                
+                # Clean up the temporary file
+                os.unlink(temp_path)
+                
+                if temp_content:
+                    # Process the uploaded file content directly
+                    prompt = f"""
+                    Content from uploaded document:
+                    {temp_content}
+                    
+                    User question: {query}
+                    
+                    Based only on the content from the uploaded document above, answer the user's question.
+                    If the answer cannot be directly found in the document content, state that clearly.
+                    Begin your response with: "Based on the uploaded document:"
+                    """
+                    
+                    return query_model(prompt, model_choice, api_key)
+                else:
+                    return "I couldn't extract text from the uploaded file. Please make sure it's a valid PDF, DOCX, or TXT file."
+                    
+            except Exception as e:
+                return f"Error processing uploaded file: {str(e)}"
+        
         # Get selected documents from session state
         selected_docs = st.session_state.get('selected_documents', [])
         
